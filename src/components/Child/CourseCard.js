@@ -3,7 +3,7 @@ import {FaUserGraduate} from "react-icons/fa"
 import {RiTimeFill} from "react-icons/ri"
 const CourseCard = () => {
     return (
-        <div className='w-[280px] border rounded-md p-2'>
+        <div className='w-[280px] border rounded-md p-2 hover:shadow-lg'>
             <div className=''>
                 <img className='w-full' src="https://img-b.udemycdn.com/course/240x135/2508942_11d3_3.jpg" alt="" />
             </div>

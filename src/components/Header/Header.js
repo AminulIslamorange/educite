@@ -2,25 +2,35 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {HiMenu} from 'react-icons/hi'
 import {ImCross} from 'react-icons/im'
+import {BsFillMoonFill,BsSunFill} from 'react-icons/bs'
 import { onAuthStateChanged , signOut } from "firebase/auth";
 import auth from '../../Firebase/Firebase.init';
 import { useEffect } from 'react';
+import ReactTooltip from 'react-tooltip';
+
 const Header = () => {
     const [visible , setVisible] = useState(false)
+    const [active , setActive] = useState(false)
     const [user , setUser] = useState({})
-    const navigate = useNavigate()
-console.log(user);
 
+   useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
          setUser(user)
         } else {
-            
-          
+       
         }
       });
 
-
+   },[user.uid])
+   const handeleSignout = ()=> {
+    signOut(auth).then(() => {
+        setUser({})
+      }).catch((error) => {
+        // An error happened.
+      });
+   }
+  
     return (
         <div className='py-4 shadow bg-blue-500'>
                <div className='container mx-auto px-2 '>
@@ -33,7 +43,12 @@ console.log(user);
                                     <li><Link to={'/courses'}>Courses</Link></li>
                                     <li><Link to={'faq'}>Faq</Link></li>
                                     <li><Link to={'/blog'}>Blog</Link></li>
-                                    <li><button className='px-2 py-2 bg-gray-600 text-white'>Dark</button></li>
+                                    <li className='w-8 h-8 flex justify-center items-center bg-red-100 rounded-full' onClick={()=>setActive(!active)}>
+                                        {
+
+                                            active ? <BsFillMoonFill/> : <BsSunFill/>
+                                        }
+                                    </li>
                                 </ul>
                             </div>
                             <div className='flex gap-3 items-center'>
@@ -41,8 +56,9 @@ console.log(user);
                                 user.uid
                                 ? 
                                 <div className='flex gap-2 items-center'>
-                                    <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" />
-                                    <button onClick={()=>signOut(auth)} className='bg-gray-500 font-bold text-white h-10 min-w-max p-1 rounded-lg'>Log Out</button>
+                                    <img title={user.displayName} className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" />
+                                    <ReactTooltip id="custom-off-event" />
+                                    <button onClick={()=>handeleSignout()} className='bg-gray-500 font-bold text-white h-10 min-w-max p-1 rounded-lg'>Log Out</button>
                                 </div>
                                 :
                                 <div>
@@ -62,7 +78,7 @@ console.log(user);
                </div>
                {
                 visible &&
-                <div className='h-[100vh] w-[350px] bg-gray-300 lg:hidden absolute mt-[19px] right-0 duration-300'> 
+                <div className='h-[100vh] z-50 w-[350px] bg-gray-300 lg:hidden absolute mt-[19px] right-0 duration-300'> 
                     <ul className=' '>
                                     <li className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'><Link to={'/courses'}>Courses</Link></li>
 
