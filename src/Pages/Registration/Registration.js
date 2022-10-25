@@ -95,7 +95,7 @@ const Registration = () => {
     <SocialSignin/>
     
         
-        <p class="mt-8 text-xs font-light text-center text-gray-400"> Already have an Account? <Link to="/login" class="font-medium text-gray-700 dark:text-gray-200 hover:underline">Log In</Link></p>
+        <p className="mt-8 text-xs font-light text-center text-gray-400"> Already have an Account? <Link to="/login" className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Log In</Link></p>
     </div>
     );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {BsGithub} from 'react-icons/bs'
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider ,  GithubAuthProvider  } from "firebase/auth";
 import auth from '../../Firebase/Firebase.init';
 const SocialSignin = () => {
     const provider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const handleGoogleSignin =()=>{
         signInWithPopup(auth, provider)
   .then((result) => {
@@ -15,6 +16,18 @@ const SocialSignin = () => {
    console.log(error);
     
   });
+    }
+
+    const handleGithubSignin =()=>{
+        signInWithPopup(auth, githubProvider)
+  .then((result) => {
+    const githubUser = result.user;
+    console.log(githubUser);
+ 
+  }).catch((error) => {
+   console.log(error);
+  });
+
     }
     return (
         
@@ -28,9 +41,10 @@ const SocialSignin = () => {
                 <span className="hidden mx-2 sm:inline">Sign in with Google</span>
             </button>
     
-            <Link to="#" className="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200">
+           <button onClick={()=>handleGithubSignin()} className="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200">
                 <BsGithub className='text-xl'></BsGithub>
-            </Link>
+            
+           </button>
         </div>
     );
 };

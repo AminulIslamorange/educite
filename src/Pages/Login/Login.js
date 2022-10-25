@@ -1,42 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {BsGithub} from 'react-icons/bs'
+import {  signInWithEmailAndPassword } from "firebase/auth";
+import auth from '../../Firebase/Firebase.init';
 import SocialSignin from '../../components/Child/SocialSignin';
 const Login = () => {
-    return (
-        <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-    <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Edukite</h1>
+    
+    const handleLogin =(e) => {
+        let email=e.target.email.value;
+        let password=e.target.password.value;
+        console.log(email,password);
+        signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
 
-    <form class="mt-6">
+    const user = userCredential.user;
+    console.log(user);
+  
+  })
+  .catch((error) => {
+   console.log(error);
+  });
+
+        e.preventDefault()
+    }
+    return (
+        <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+    <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Edukite</h1>
+
+    <form onSubmit={(e)=> handleLogin(e)}  className="mt-6">
         <div>
-            <label for="email" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
-            <input type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
+            <label  className="block text-sm text-gray-800 dark:text-gray-200">Email</label>
+            <input name='email'  type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
         </div>
 
-        <div class="mt-4">
-            <div class="flex items-center justify-between">
-                <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-                <Link to="#" class="text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</Link>
+        <div className="mt-4">
+            <div className="flex items-center justify-between">
+                <label  className="block text-sm text-gray-800 dark:text-gray-200">Password</label>
+                <Link to="#" className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</Link>
             </div>
 
-            <input type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+            <input name='password' type="password" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
         </div>
 
-        <div class="mt-6">
-            <button class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+        <div className="mt-6">
+            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                 Login
             </button>
         </div>
     </form>
 
-    <div class="flex items-center justify-between mt-4">
-        <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
+    <div className="flex items-center justify-between mt-4">
+        <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-        <Link to="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
+        <Link to="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
             or login with Social Media
         </Link>
 
-        <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
+        <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
     </div>
 {/* SocialSignin */}
     <SocialSignin/>
