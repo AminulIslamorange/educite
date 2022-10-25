@@ -21,7 +21,8 @@ const Header = () => {
                                 </ul>
                             </div>
                             <div className='flex gap-3 items-center'>
-                                <button className='px-4 py-2 rounded-md bg-gray-600 text-white border'>Login</button>
+                               <Link to='/login'> <button className='px-4 py-2 rounded-md bg-gray-600 text-white border'>Login</button></Link>
+                               <Link to='/register'> <button className='px-4 py-2 rounded-md bg-blue-600 text-white border'>Register</button></Link>
                                <div className='lg:hidden'>
                                 {
                                     visible ?  <ImCross onClick={()=>setVisible(!visible)} className='text-3xl cursor-pointer '/> :   <HiMenu onClick={()=>setVisible(!visible)} className='text-2xl cursor-pointer'/>

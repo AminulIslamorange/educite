@@ -4,7 +4,7 @@ import CourseCard from '../../components/Child/CourseCard';
 const Courses = () => {
     return (
         <div className='p-2 '>
-           <div className='container mx-auto  rounded-md p-2 lg:grid grid-cols-12'>
+           <div className='container mx-auto  rounded-md p-2 lg:grid grid-cols-12 mt-4'>
             <div className='col-span-3  p-2'>
                 <ul>
                     <li className='block mb-2 border p-4'>
@@ -27,7 +27,7 @@ const Courses = () => {
                     </li>
                 </ul>
             </div>
-            <div className='col-span-9 border p-2'>
+            <div className='col-span-9  p-2'>
                 <div className='grid lg:grid-cols-3 grid-cols-1 gap-6 justify-items-center'>
                 <CourseCard/>
                 <CourseCard/>
