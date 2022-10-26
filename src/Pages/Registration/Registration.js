@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  , updateProfile  } from "firebase/auth";
 import auth from '../../Firebase/Firebase.init';
 import SocialSignin from '../../components/Child/SocialSignin';
 
 const Registration = () => {
+    const navigate = useNavigate();
     const handleRegister =(event)=>{
         event.preventDefault();
         let fullName = event.target[0].value
@@ -17,6 +18,9 @@ const Registration = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    if (user) {
+        navigate("/courses");
+    }
     
     updateProfile(auth.currentUser, {
         displayName: fullName , photoURL: photourl

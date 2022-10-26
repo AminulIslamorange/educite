@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import auth from '../../Firebase/Firebase.init';
 import SocialSignin from '../../components/Child/SocialSignin';
 const Login = () => {
-    
+    const navigate = useNavigate();
     const handleLogin =(e) => {
         let email=e.target.email.value;
         let password=e.target.password.value;
@@ -13,7 +13,9 @@ const Login = () => {
   .then((userCredential) => {
 
     const user = userCredential.user;
-    console.log(user);
+    if (user) {
+        navigate("/courses");
+    }
   
   })
   .catch((error) => {

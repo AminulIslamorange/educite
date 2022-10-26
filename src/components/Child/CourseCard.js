@@ -1,6 +1,7 @@
 import React from 'react';
 import {FaUserGraduate} from "react-icons/fa"
 import {RiTimeFill} from "react-icons/ri"
+import { Link } from 'react-router-dom';
 const CourseCard = () => {
     return (
         <div className='w-[280px] border rounded-md p-2 hover:shadow-lg'>
@@ -21,7 +22,8 @@ const CourseCard = () => {
                </div>
                </div>
                <div>
-                <button className='w-full py-2 text-lg bg-blue-500 text-white rounded-md '>Details</button>
+                <Link to={`/course/:${'id'}`}>
+                <button className='w-full py-2 text-lg bg-blue-500 text-white rounded-md '>Details</button></Link>
                </div>
 
              </div>

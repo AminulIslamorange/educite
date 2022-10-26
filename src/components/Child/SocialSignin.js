@@ -1,16 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {BsGithub} from 'react-icons/bs'
 import { signInWithPopup, GoogleAuthProvider ,  GithubAuthProvider  } from "firebase/auth";
 import auth from '../../Firebase/Firebase.init';
 const SocialSignin = () => {
+  const navigate = useNavigate();
     const provider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const handleGoogleSignin =()=>{
         signInWithPopup(auth, provider)
   .then((result) => {
     const user = result.user;
-    console.log(user);
+    if (user) {
+      navigate("/courses");
+    }
     // ...
   }).catch((error) => {
    console.log(error);
@@ -22,7 +25,9 @@ const SocialSignin = () => {
         signInWithPopup(auth, githubProvider)
   .then((result) => {
     const githubUser = result.user;
-    console.log(githubUser);
+    if (githubUser) {
+      navigate("/courses");
+    }
  
   }).catch((error) => {
    console.log(error);

@@ -12,11 +12,14 @@ const Header = () => {
     const [visible , setVisible] = useState(false)
     const [active , setActive] = useState(false)
     const [user , setUser] = useState({})
+    
 
    useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
          setUser(user)
+         
+
         } else {
        
         }
