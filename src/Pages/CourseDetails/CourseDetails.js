@@ -2,20 +2,28 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import {FaUserGraduate,FaBook } from "react-icons/fa"
 import {RiTimeFill} from "react-icons/ri"
-import { useEffect } from 'react';
+import ReactToPdf from "react-to-pdf"
 const CourseDetails = () => {
+    const ref = React.createRef();
     const course = useLoaderData();
-    let {lectures,id,duration,students,image,description,courseTitle,category} = course
+    let {lectures,duration,students,image,description,courseTitle} = course
     
     return (
         <div className='container mx-auto px-2'>
-            {/* div for header name and dowunload button */}
-            <div className='py-3 flex justify-between items-center'>
+            {/* div for header name and download button */}
+            <div className='py-3 flex justify-between items-center bg-gray-100 px-2'>
                 <div className="name">
                     <h2 className='text-xl font-bold text-gray-600'>{courseTitle}</h2>
                 </div>
                 <div className="btn">
-                    <button className='px-3 py-2 rounded-md border '>Download</button>
+                <ReactToPdf targetRef={ref} filename="coursedetails.pdf" options={course} x={.5} y={.5} scale={0.8}>
+        {({toPdf}) => (
+          
+            <button onClick={toPdf} className='px-3 py-2 rounded-md border hover:bg-blue-500 hover:text-white duration-300 '>Download</button>
+        )}
+    </ReactToPdf>
+    
+                   
                 </div>
             </div>
             {/* Content */}
@@ -38,7 +46,7 @@ const CourseDetails = () => {
 
                     </div>
                     <div className='lg:w-3/4  shadow rounded-md p-2'>
-                        <div className='p-2'>
+                        <div className='p-2' ref={ref}>
                           {description}
                         </div>
 

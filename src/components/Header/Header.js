@@ -67,7 +67,7 @@ const Header = () => {
                                 <div>
                                      <Link to='/login'> <button className='px-4 py-2 rounded-md bg-gray-600 text-white border'>Login</button></Link>
 
-<Link to='/register'> <button className='px-4 py-2 rounded-md bg-blue-600 text-white border'>Register</button></Link>
+                                    <Link to='/register'> <button className='px-4 py-2 rounded-md bg-blue-600 text-white border'>Register</button></Link>
                                 </div>
                               }
                                <div className='lg:hidden'>
@@ -81,13 +81,18 @@ const Header = () => {
                </div>
                {
                 visible &&
-                <div className='h-[100vh] z-50 w-[350px] bg-gray-300 lg:hidden absolute mt-[19px] right-0 duration-300'> 
+                <div onClick={()=>setVisible(false)} className='h-[100vh] z-50 w-[350px] bg-gray-300 lg:hidden absolute mt-[19px] right-0 duration-300'> 
                     <ul className=' '>
-                                    <li className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'><Link to={'/courses'}>Courses</Link></li>
+                    <Link to={'/courses'}> <li className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'>Courses</li></Link>
 
-                                    <li  className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'><Link to={'faq'}>Faq</Link></li>
-                                    <li  className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'><Link to={'/blog'}>Blog</Link></li>
-                                    <li className='inline-block pl-2'><button className='px-2 py-2 bg-gray-600 text-white'>Dark</button></li>
+                    <Link to={'faq'}> <li  className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'>Faq</li></Link>
+                    <Link to={'/blog'}> <li  className='text-xl block py-3 hover:bg-gray-800 duration-500 hover:text-white mb-2 pl-2'>Blog</li></Link>
+                                    <li onClick={()=>setActive(!active)} className='inline-block pl-2'>
+                                    {
+
+active ? <BsFillMoonFill/> : <BsSunFill/>
+}
+                                    </li>
                                 </ul>
                </div> 
                }
