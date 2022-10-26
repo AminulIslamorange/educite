@@ -7,7 +7,6 @@ import Courses from "../../Pages/Courses/Courses";
 import Erorpage from "../../Pages/ErrorPage/Erorpage";
 import Faq from "../../Pages/Faq/Faq";
 import Login from "../../Pages/Login/Login";
-import PrivateRoute from "../../Pages/PrivateRoute/PrivateRoute";
 import Registration from "../../Pages/Registration/Registration";
 
 
@@ -37,7 +36,7 @@ export const routes=createBrowserRouter([
               },
             {
                 path: "/checkout/:id",
-                element: <PrivateRoute><Checkout/></PrivateRoute> ,
+                element: <Checkout/> ,
               },
                 
             {

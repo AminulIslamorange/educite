@@ -42,11 +42,11 @@ const Header = () => {
                             <img className='w-24' src="https://edukite.org/wp-content/uploads/2018/06/edukite-logo-WHT.png" alt="" />
                             </div>
                             <div className='hidden lg:block'>
-                                <ul className='flex gap-6 items-center text-xl'>
+                                <ul className='flex gap-6 items-center text-xl text-white'>
                                     <li><Link to={'/courses'}>Courses</Link></li>
                                     <li><Link to={'faq'}>Faq</Link></li>
                                     <li><Link to={'/blog'}>Blog</Link></li>
-                                    <li className='w-8 h-8 flex justify-center items-center bg-red-100 rounded-full' onClick={()=>setActive(!active)}>
+                                    <li className='w-8 h-8 flex justify-center items-center bg-gray-400 rounded-full' onClick={()=>setActive(!active)}>
                                         {
 
                                             active ? <BsFillMoonFill/> : <BsSunFill/>

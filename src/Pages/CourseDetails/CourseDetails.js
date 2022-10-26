@@ -29,7 +29,7 @@ const CourseDetails = () => {
             {/* Content */}
             <div className='lg:flex gap-6 flex-row-reverse p-2  '>
                   
-                    <div className='lg:w-1/4 shadow max-h-[360px] rounded-md p-2'>
+                    <div className='lg:w-1/4 shadow max-h-max rounded-md p-2'>
                         <div className="img">
                             <img className='w-full mb-2' src={image} alt="" />
                         </div>
