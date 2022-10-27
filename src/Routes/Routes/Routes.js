@@ -18,12 +18,12 @@ export const routes=createBrowserRouter([
             {
                 path: "/",
                 element: <Courses/>,
-                loader: () => fetch('http://localhost:5000/api/allcourses/')
+                loader: () => fetch('https://edukite-server.vercel.app/api/allcourses/')
               },
             {
                 path: "/courses",
                 element: <Courses/>,
-                loader: () => fetch('http://localhost:5000/api/allcourses/')
+                loader: () => fetch('https://edukite-server.vercel.app/api/allcourses/')
               },
             {
                 path: "/blog",
@@ -32,7 +32,7 @@ export const routes=createBrowserRouter([
             {
                 path: "/course/:id",
                 element: <CourseDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5000/api/course/${params.id}`)
+                loader: ({params}) => fetch(`https://edukite-server.vercel.app/api/course/${params.id}`)
               },
             {
                 path: "/checkout/:id",

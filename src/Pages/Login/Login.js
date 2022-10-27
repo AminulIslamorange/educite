@@ -20,6 +20,7 @@ const Login = () => {
      
         navigate("/courses");
     }
+
   
   })
   .catch((error) => {
