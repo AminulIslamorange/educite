@@ -9,7 +9,7 @@ const CourseDetails = () => {
     let {lectures,duration,students,image,description,courseTitle} = course
     
     return (
-        <div className='container mx-auto px-2'>
+        <div className='container mx-auto px-2 min-h-screen'>
             {/* div for header name and download button */}
             <div className='py-3 flex justify-between items-center bg-gray-100 px-2'>
                 <div className="name">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Faq = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
            <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-12 mx-auto">
         <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">Frequently asked questions</h1>
@@ -20,7 +20,7 @@ const Faq = () => {
                 </button>
 
                 <p class="mt-6 text-sm text-gray-500 dark:text-gray-300">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas eaque nobis, fugit odit omnis fugiat deleniti animi ab maxime cum laboriosam recusandae facere dolorum veniam quia pariatur obcaecati illo ducimus?
+                   Edukite amet consectetur adipisicing elit. Voluptas eaque nobis, fugit odit omnis fugiat deleniti animi ab maxime cum laboriosam recusandae facere dolorum veniam quia pariatur obcaecati illo ducimus?
                 </p>
             </div>
 

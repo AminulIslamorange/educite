@@ -1,4 +1,4 @@
-# Live site link : [link here]
+# Live site link : [https://edukite-363fa.web.app]
 
  # Website name : Edukite - Quality learning platform.
  * This website based on education related any people can visited and buy some courses

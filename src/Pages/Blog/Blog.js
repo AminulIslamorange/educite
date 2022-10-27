@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='container mx-auto p-2  '>
+        <div className='container mx-auto p-2 min-h-screen '>
            <div className='shadow-md mb-2 p-2' >
            <h2 className='text-2xl font-bold'>What is cors?</h2>
                      <p>Ans:Cross-Origin Resource Sharing   (CORS)    refers to
